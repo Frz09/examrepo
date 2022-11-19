@@ -1,0 +1,23 @@
+cluster.name: examcluster
+
+node.name: monitoring.do1.exam
+
+path.data: /var/lib/elasticsearch
+
+path.logs: /var/log/elasticsearch
+
+network.host: ["localhost", "192.168.111.203"]
+
+http.port: 9200
+
+cluster.initial_master_nodes: ["monitoring.do1.exam"]
+
+xpack.security.enabled: false
+
+xpack.security.enrollment.enabled: false
+
+xpack.security.http.ssl:
+  enabled: false
+  
+xpack.security.transport.ssl:
+  enabled: false

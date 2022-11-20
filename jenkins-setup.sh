@@ -8,7 +8,7 @@ echo "* Stop Jenkins"
 systemctl stop jenkins
 
 echo "* Turn off setup wizard"
-sed -i 's/# arguments to pass to java/JAVA_OPTS="-Djenkins.install.runSetupWizard=false"/' /etc/default/jenkins
+sed -i 's/# arguments to pass to java/JAVA_OPTS="-Djenkins.install.runSetupWizard=false"/' /bin/jenkins
 
 echo "* Upload Groovy scripts"
 mkdir /var/lib/jenkins/init.groovy.d
@@ -28,7 +28,7 @@ echo "* Restart Jenkins"
 systemctl restart jenkins
 
 echo "* Download Jenkins CLI"
-wget http://192.168.111.201:8080/jnlpJars/jenkins-cli.jar
+wget http://192.168.121.121:8080/jnlpJars/jenkins-cli.jar
 
 echo "* Create vagrant credentials"
 /vagrant/jenkins/add-jenkins-credentials.sh vagrant vagrant vagrant
@@ -37,7 +37,7 @@ echo "* Create Docker Hub credentials"
 /vagrant/jenkins/add-jenkins-credentials.sh docker-hub $CRED_NAME $CRED_PASS
 
 echo "* Add slave node"
-/vagrant/jenkins/add-jenkins-slave.sh containers.do1.exam vagrant
+/vagrant/jenkins/add-jenkins-slave.sh containers.retake.exam vagrant
 
 #echo "* Add the homework job"
 #/vagrant/jenkins/add-jenkins-job.sh

@@ -1,5 +1,5 @@
 server.port: 5601
-server.host: "192.168.111.203"
+server.host: "192.168.121.123"
 server.name: "server"
 elasticsearch.hosts: ["http://localhost:9200"]
 logging:

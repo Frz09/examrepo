@@ -12,7 +12,7 @@ CRED_ID=$2
 LABELS=containers
 USERID=admin
 
-cat <<EOF | java -jar /home/vagrant/jenkins-cli.jar -s http://192.168.111.201:8080/ -http -auth admin:admin create-node $1
+cat <<EOF | java -jar /home/vagrant/jenkins-cli.jar -s http://192.168.121.121:8080/ -http -auth admin:admin create-node $1
 <slave>
   <name>${NODE_NAME}</name>
   <description>Jenkins Slave Node</description>

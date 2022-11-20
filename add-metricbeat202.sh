@@ -4,10 +4,10 @@ echo "* Download MetricBeat package"
 wget https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-8.4.3-x86_64.rpm
 
 echo "* Install MetricBeat"
-rpm -Uvh metricbeat-8.4.3-x86_64.rpm
+sudo rpm -Uvh metricbeat-8.4.3-x86_64.rpm
 
 echo "* Deploy configuration"
-cp -v /vagrant/metricbeat.yml /etc/metricbeat/metricbeat.yml
+sudo cp -v /vagrant/metricbeat.yml /etc/metricbeat/metricbeat.yml
 
 echo "* Enable the system module"
 metricbeat modules enable system

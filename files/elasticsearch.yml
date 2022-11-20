@@ -1,16 +1,16 @@
 cluster.name: examcluster
 
-node.name: monitoring.do1.exam
+node.name: monitoring.retake.exam
 
 path.data: /var/lib/elasticsearch
 
 path.logs: /var/log/elasticsearch
 
-network.host: ["localhost", "192.168.111.203"]
+network.host: ["localhost", "192.168.121.123"]
 
 http.port: 9200
 
-cluster.initial_master_nodes: ["monitoring.do1.exam"]
+cluster.initial_master_nodes: ["monitoring.retake.exam"]
 
 xpack.security.enabled: false
 

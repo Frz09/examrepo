@@ -1,7 +1,7 @@
 import jenkins.model.*
 
 // Read the environment variable
-url = 'http://192.168.111.201:8080'
+url = 'http://192.168.121.121:8080'
 
 // Get the config from our running instance
 urlConfig = JenkinsLocationConfiguration.get()

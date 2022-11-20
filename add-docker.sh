@@ -22,5 +22,5 @@ usermod -aG docker vagrant
 
 echo "* Install Docker Compose as a plugin for the vagrant user"
 mkdir -p /home/vagrant/.docker/cli-plugins/
-curl -SL https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-linux-x86_64 -o /home/vagrant/.docker/cli-plugins/docker-compose
-chmod +x /home/vagrant/.docker/cli-plugins/docker-compose
+sudo curl -SL https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-linux-x86_64 -o /home/vagrant/.docker/cli-plugins/docker-compose
+sudo chmod +x /home/vagrant/.docker/cli-plugins/docker-compose

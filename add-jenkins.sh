@@ -9,14 +9,11 @@ sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
 echo "* Install Jenkins"
 sudo dnf install -y jenkins
 
-echo "* Adjust jenkins user"
-echo 'user:passwd' | jenkins admin
+#echo "* Adjust group membership"
+#usermod -aG jenkins vagrant
 
-echo "* Adjust group membership"
-usermod -aG jenkins vagrant
+#echo "* Start Jenkins"
+#systemctl enable --now jenkins
 
-echo "* Start Jenkins"
-systemctl enable --now jenkins
-
-echo "* admin password is:"
-sudo cat /home/vagrant/.jenkins/secrets/initialAdminPassword
+#echo "* admin password is:"
+#sudo cat /home/vagrant/.jenkins/secrets/initialAdminPassword

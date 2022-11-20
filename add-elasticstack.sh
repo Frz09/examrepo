@@ -4,10 +4,10 @@ echo "* Set policies as LEGACY"
 sudo update-crypto-policies --set LEGACY
 
 echo "* Import the repository key"
-rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+sudo rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
 
 echo "* Register the repository"
-cat > /etc/yum.repos.d/elasticsearch.repo <<EOF
+sudo cat > /etc/yum.repos.d/elasticsearch.repo <<EOF
 [elasticsearch]
 name=Elasticsearch repository for 8.x packages
 baseurl=https://artifacts.elastic.co/packages/8.x/yum
@@ -22,16 +22,16 @@ echo "* Install Elasticsearch, Logstash, and Kibana"
 sudo dnf install --enablerepo=elasticsearch -y elasticsearch logstash kibana
 
 echo "* Deploy configuration for Elasticsearch"
-cp -v /vagrant/elasticsearch.yml /etc/elasticsearch/
+sudo cp -v /vagrant/elasticsearch.yml /etc/elasticsearch/
 
 echo "* Correct the Java heap size for Elasticsearch"
-cat > /etc/elasticsearch/jvm.options.d/jvm.options <<EOF
+sudo cat > /etc/elasticsearch/jvm.options.d/jvm.options <<EOF
 -Xms1g
 -Xmx1g
 EOF
     
 echo "* Create beats configuration for Logstash"
-cat > /etc/logstash/conf.d/beats.conf << EOF
+sudo cat > /etc/logstash/conf.d/beats.conf << EOF
 input {
   beats {
     port => 5044
@@ -46,10 +46,10 @@ output {
 EOF
 
 echo "* Deploy configuration for Kibana"
-cp -v /vagrant/kibana.yml /etc/kibana/
+sudo cp -v /vagrant/kibana.yml /etc/kibana/
 
 echo "* Start the services"
-systemctl daemon-reload
-systemctl enable --now elasticsearch
-systemctl enable --now logstash
-systemctl enable --now kibana
+sudo systemctl daemon-reload
+sudo systemctl enable --now elasticsearch
+sudo systemctl enable --now logstash
+sudo systemctl enable --now kibana

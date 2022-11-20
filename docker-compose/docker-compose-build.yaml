@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+    web:
+        build:
+            context: .
+            dockerfile: Dockerfile.web.embedded
+        ports:
+            - 8080:80
+        networks:
+            - app-net
+        depends_on:
+            - db
+    db:
+        build:
+            context: .
+            dockerfile: Dockerfile.db
+        networks:
+            - app-net
+        environment:
+            MYSQL_ROOT_PASSWORD: "ExamPa$$w0rd"
+networks:
+    app-network:

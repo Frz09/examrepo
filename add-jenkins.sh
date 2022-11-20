@@ -7,18 +7,16 @@ echo "* Import Jenkins repository key"
 sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
 
 echo "* Install Jenkins"
-dnf install -y jenkins
+sudo dnf install -y jenkins
 
 echo "* Adjust jenkins user"
-usermod -s /bin/bash jenkins | passwd jenkins
-echo -e 'admin/admin'
+echo 'user:passwd' | jenkins admin
 
 echo "* Adjust group membership"
-usermod -aG jenkins
+usermod -aG jenkins vagrant
 
 echo "* Start Jenkins"
 systemctl enable --now jenkins
 
-#Where is the directory on CentOS9
-# echo "* admin password is:"
-#cat /var/lib/jenkins/secrets/initialAdminPassword
+echo "* admin password is:"
+sudo cat /home/vagrant/.jenkins/secrets/initialAdminPassword

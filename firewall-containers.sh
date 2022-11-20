@@ -1,5 +1,5 @@
 echo "* Adjust firewall rules"
-firewall-cmd --add-port 3000/tcp --permanent
-firewall-cmd --add-port 5044/tcp --permanent
-firewall-cmd --add-port 8080/tcp --permanent
-firewall-cmd --reload
+sudo firewall-cmd --add-port 3000/tcp --permanent
+sudo firewall-cmd --add-port 5044/tcp --permanent
+sudo firewall-cmd --add-port 8080/tcp --permanent
+sudo firewall-cmd --reload

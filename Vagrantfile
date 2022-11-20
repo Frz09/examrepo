@@ -10,8 +10,8 @@ Vagrant.configure("2") do |config|
     pipelines.vm.network "private_network", ip: "192.168.111.201"
     pipelines.vm.network "forwarded_port", guest: 8080, host: 8080
     pipelines.vm.provision "shell", path: "add-hosts.sh"
-    pipelines.vm.provision "shell", path: "add-jenkins.sh"
     pipelines.vm.provision "shell", path: "add-java17.sh"
+    pipelines.vm.provision "shell", path: "add-jenkins.sh"
     pipelines.vm.provision "shell", path: "add-metricbeat201.sh"
     pipelines.vm.provision "shell", path: "add-git.sh"
     pipelines.vm.provision "shell", path: "firewall-pipelines.sh"
@@ -22,6 +22,7 @@ Vagrant.configure("2") do |config|
       v.cpus = 2
     end
     pipelines.vm.synced_folder "files/", "/vagrant"
+    pipelines.vm.synced_folder "jenkins-files/", "/vagrant"
 
   end
   

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "* Set policies as LEGACY"
+sudo update-crypto-policies --set LEGACY
+
 echo "* Import the repository key"
 rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
 
